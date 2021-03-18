@@ -8,6 +8,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 	PrintLine(TEXT("Please enter your 6 letter guess")); //change the number to be randomly generated
 	TheWord = TEXT("Saturn");
 	TheWord.ToLower();
+	Lives = INT32(3);
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
@@ -23,6 +24,11 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 		PrintLine(TEXT("You Win!"));
 	} else
 	{
+		if (Lives <= 0)
+		{
+			PrintLine(TEXT("You Lose"));
+		}
 		PrintLine(TEXT("Guess Again!"));
+		Lives--;
 	}
 }
