@@ -19,4 +19,5 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 	private:
 		FString TheWord;
 		INT32 Lives;
+		bool GameOver;
 };
