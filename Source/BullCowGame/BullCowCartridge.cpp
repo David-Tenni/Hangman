@@ -16,7 +16,7 @@ void UBullCowCartridge::InitGame()
 	
 	TheWord = TEXT("Saturn");
 	TheWord.ToLower();
-	Lives = INT32(3);
+	Lives = 3;
 	GameOver = false;
 	NumberOfLetters = 6;
 
@@ -52,6 +52,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 			{
 				PrintLine(TEXT("Guess Again!"));
 				Lives--;
+
+				PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
 			}
 		}
 	}
