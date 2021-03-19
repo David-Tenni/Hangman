@@ -15,10 +15,10 @@ void UBullCowCartridge::InitGame()
 {
 	
 	TheWord = TEXT("Saturn");
-	TheWord.ToLower();
+	TheWord = TheWord.ToLower();
+	NumberOfLetters = TheWord.Len();
 	Lives = 3;
 	GameOver = false;
-	NumberOfLetters = 6;
 
 	PrintLine(TEXT("Hang Man: The Beginning!"));
 	PrintLine(FString::Printf(TEXT("Please enter your %i letter guess"), NumberOfLetters)); //change the number to be randomly generated
@@ -35,12 +35,12 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 	{
 		ClearScreen();
 		InitGame();
-	} else
+	}
+	else
 	{
 		if (Lives == 0)
 		{
-			PrintLine(TEXT("You lose type yes to play again"));
-			GameOver = true;
+			EndGame();
 		}
 		else
 		{
@@ -68,4 +68,9 @@ bool UBullCowCartridge::Validate(FString Guess)
 	}
 	return false;
 	
+}
+void UBullCowCartridge::EndGame()
+{
+	PrintLine(TEXT("You lose type yes to play again"));
+	GameOver = true;
 }
