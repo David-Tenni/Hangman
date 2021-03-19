@@ -45,21 +45,26 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 		}
 		else
 		{
-			if (PlayerGuess == TheWord)
+			if (PlayerGuess == TheWord && Validate(PlayerGuess))
 			{
 				PrintLine(TEXT("You Win!"));
 			}
 			else
 			{
-
-
 				PrintLine(TEXT("Guess Again!"));
 				Lives--;
 			}
 		}
 	}
-
 	
-
+	
+}
+bool UBullCowCartridge::Validate(FString Guess)
+{
+	if (Guess.Len() == NumberOfLetters)
+	{
+		return true;
+	}
+	return false;
 	
 }
