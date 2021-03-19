@@ -21,7 +21,8 @@ void UBullCowCartridge::InitGame()
 	NumberOfLetters = 6;
 
 	PrintLine(TEXT("Hang Man: The Beginning!"));
-	PrintLine(TEXT("Please enter your 6 letter guess")); //change the number to be randomly generated
+	PrintLine(FString::Printf(TEXT("Please enter your %i letter guess"), NumberOfLetters)); //change the number to be randomly generated
+
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
@@ -32,10 +33,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 	PrintLine(PlayerGuess);
 	if (GameOver == true && PlayerGuess.ToLower() == "yes")
 	{
-		GameOver = false;
-		Lives = 3;
-		PrintLine(TEXT("Hang Man: The Beginning!"));
-		PrintLine(TEXT("Please enter your 6 letter guess")); //change the number to be randomly generated
+		ClearScreen();
+		InitGame();
 	} else
 	{
 		if (Lives == 0)
