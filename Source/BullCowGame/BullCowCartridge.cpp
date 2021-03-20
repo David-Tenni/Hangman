@@ -35,31 +35,32 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 	{
 		ClearScreen();
 		InitGame();
+		return;
+	}
+
+	if (Lives == 0)
+	{
+		EndGame();
+		return;
+	}
+	
+
+	if (Validate(PlayerGuess))
+	{
+		PrintLine(TEXT("You Win!"));
 	}
 	else
 	{
-		if (Lives == 0)
-		{
-			EndGame();
-		}
-		else
-		{
-			if (Validate(PlayerGuess))
-			{
-				PrintLine(TEXT("You Win!"));
-			}
-			else
-			{
-				PrintLine(TEXT("Guess Again!"));
-				--Lives;
+		PrintLine(TEXT("Guess Again!"));
+		--Lives;
 
-				PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
-			}
-		}
+		PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
 	}
-	
-	
 }
+	
+	
+	
+
 bool UBullCowCartridge::Validate(FString Guess)
 {
 	if (Guess.Len() == NumberOfLetters && Guess == TheWord)
@@ -71,7 +72,10 @@ bool UBullCowCartridge::Validate(FString Guess)
 }
 void UBullCowCartridge::EndGame()
 {
-	PrintLine(TEXT("You lose type yes to play again"));
+	ClearScreen();
+	PrintLine(FString::Printf(TEXT("The Word was %s"), *TheWord));
+	PrintLine(TEXT("\nYou lose type yes to play again"));
+
 	GameOver = true;
 }
 
