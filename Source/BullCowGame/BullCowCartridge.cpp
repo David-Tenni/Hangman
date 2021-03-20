@@ -44,14 +44,14 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 		}
 		else
 		{
-			if (PlayerGuess == TheWord && Validate(PlayerGuess))
+			if (Validate(PlayerGuess))
 			{
 				PrintLine(TEXT("You Win!"));
 			}
 			else
 			{
 				PrintLine(TEXT("Guess Again!"));
-				Lives--;
+				--Lives;
 
 				PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
 			}
@@ -62,7 +62,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 }
 bool UBullCowCartridge::Validate(FString Guess)
 {
-	if (Guess.Len() == NumberOfLetters)
+	if (Guess.Len() == NumberOfLetters && Guess == TheWord)
 	{
 		return true;
 	}
@@ -74,3 +74,4 @@ void UBullCowCartridge::EndGame()
 	PrintLine(TEXT("You lose type yes to play again"));
 	GameOver = true;
 }
+
