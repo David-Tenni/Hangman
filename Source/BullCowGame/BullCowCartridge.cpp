@@ -105,17 +105,6 @@ bool UBullCowCartridge::IsIsogram( FString PlayerGuess) const
 		}
 	}
 	return true;
-	/*for (int32 Index = 0, Comparison = Index + 1; Comparison < PlayerGuess.Len(); Comparison++) 
-	{
-		if (PlayerGuess[Index] == PlayerGuess[Comparison]) 
-		{
-			return false; 
-		}
-		if (Comparison == PlayerGuess.Len()) 
-		{
-			Index = Index++;
-		}
-	}*/
 
 
 }
