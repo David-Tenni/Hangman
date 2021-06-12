@@ -22,6 +22,13 @@ void UBullCowCartridge::InitGame()
 
 	PrintLine(TEXT("Hang Man: The Beginning!"));
 	PrintLine(FString::Printf(TEXT("Please enter your %i letter guess"), NumberOfLetters)); //change the number to be randomly generated
+
+	//int32 i = 0;
+	//do
+	//{
+	//	PrintLine(TEXT("%i"), i);
+	//	i++;
+	//} while (i < 70);
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
@@ -87,6 +94,28 @@ void UBullCowCartridge::EndGame()
 
 bool UBullCowCartridge::IsIsogram( FString PlayerGuess) const
 {
-//TCHAR GuessArray[] = TEXT(PlayerGuess);
-return true;
+	for (int32 Index = 0; Index < PlayerGuess.Len(); Index++)
+	{
+		for (int32 Comparison = Index + 1; Comparison < PlayerGuess.Len(); Comparison++) 
+		{
+			if (PlayerGuess[Index] == PlayerGuess[Comparison]) 
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+	/*for (int32 Index = 0, Comparison = Index + 1; Comparison < PlayerGuess.Len(); Comparison++) 
+	{
+		if (PlayerGuess[Index] == PlayerGuess[Comparison]) 
+		{
+			return false; 
+		}
+		if (Comparison == PlayerGuess.Len()) 
+		{
+			Index = Index++;
+		}
+	}*/
+
+
 }
