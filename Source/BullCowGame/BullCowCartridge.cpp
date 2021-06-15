@@ -21,14 +21,13 @@ void UBullCowCartridge::InitGame()
 	GameOver = false;
 
 	PrintLine(TEXT("Hang Man: The Beginning!"));
+	PrintLine(TEXT("number of possible words, %i"), Words.Num());
 	PrintLine(FString::Printf(TEXT("Please enter your %i letter guess"), NumberOfLetters)); //change the number to be randomly generated
 
-	//int32 i = 0;
-	//do
+	//for (int i = 0; i < 5; i++)
 	//{
-	//	PrintLine(TEXT("%i"), i);
-	//	i++;
-	//} while (i < 70);
+	//	PrintLine(TEXT("Word %i, is: %s"), i, *Words[i]);
+	//}
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
