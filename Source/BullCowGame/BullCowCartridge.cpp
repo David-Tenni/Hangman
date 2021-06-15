@@ -6,7 +6,7 @@
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
-	
+	GetValidWords(Words);
 	InitGame();
 
 }
@@ -91,6 +91,7 @@ void UBullCowCartridge::EndGame()
 	GameOver = true;
 }
 
+
 bool UBullCowCartridge::IsIsogram( FString PlayerGuess) const
 {
 	for (int32 Index = 0; Index < PlayerGuess.Len(); Index++)
@@ -106,4 +107,17 @@ bool UBullCowCartridge::IsIsogram( FString PlayerGuess) const
 	return true;
 
 
+}
+
+TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString>Words) const
+{
+	TArray<FString>ValidWords;
+		for (int32 Index = 0; Index <5; Index++)
+		{
+			if (Words[Index].Len() >= 4)
+			{
+				ValidWords.Emplace(Words[Index]);
+			}
+		}
+		return ValidWords;
 }
