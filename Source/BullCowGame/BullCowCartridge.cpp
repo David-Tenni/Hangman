@@ -54,7 +54,6 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 		PrintLine(TEXT("You Win!"));
 		PrintLine(TEXT("Type Yes to play again"));
 		GameOver = true;
-
 	}
 
 }
