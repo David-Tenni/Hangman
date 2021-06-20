@@ -38,8 +38,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 	PrintLine(PlayerGuess);
 	if (GameOver == true && PlayerGuess.ToLower() == "yes")
 	{
-		ClearScreen();
-		InitGame();
+		RestartGame();
 		return;
 	}
 
@@ -53,12 +52,18 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 	if (Validate(PlayerGuess))
 	{
 		PrintLine(TEXT("You Win!"));
-		PrintLine(TEXT("You Win!"));
+		PrintLine(TEXT("Type Yes to play again"));
+		GameOver = true;
+
 	}
 
 }
 	
-	
+void UBullCowCartridge::RestartGame() 
+{
+	ClearScreen();
+	InitGame();
+}
 	
 
 bool UBullCowCartridge::Validate(FString Guess)
