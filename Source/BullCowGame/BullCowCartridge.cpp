@@ -14,7 +14,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 void UBullCowCartridge::InitGame()
 {
 	
-	TheWord = TEXT("Saturn");
+	TheWord = GetValidWords(Words)[FMath::RandRange(0, GetValidWords(Words).Num() -1)];
 	TheWord = TheWord.ToLower();
 	NumberOfLetters = TheWord.Len();
 	Lives = 3;
