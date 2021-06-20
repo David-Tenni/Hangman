@@ -26,4 +26,5 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 		INT32 Lives;
 		bool GameOver;
 		INT32 NumberOfLetters;
+		TArray<FString> Isograms;
 };

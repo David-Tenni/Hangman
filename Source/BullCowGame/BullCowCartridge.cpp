@@ -6,7 +6,7 @@
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
-	GetValidWords(Words);
+	Isograms = GetValidWords(Words);
 	InitGame();
 
 }
@@ -14,14 +14,14 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 void UBullCowCartridge::InitGame()
 {
 	
-	TheWord = GetValidWords(Words)[FMath::RandRange(0, GetValidWords(Words).Num() -1)];
+	TheWord = Isograms[FMath::RandRange(0, Isograms.Num() -1)];
 	TheWord = TheWord.ToLower();
 	NumberOfLetters = TheWord.Len();
 	Lives = 3;
 	GameOver = false;
 
 	PrintLine(TEXT("Hang Man: The Beginning!"));
-	PrintLine(TEXT("number of possible words, %i"), Words.Num());
+	//PrintLine(TEXT("number of possible words, %i"), Words.Num());
 	PrintLine(FString::Printf(TEXT("Please enter your %i letter guess"), NumberOfLetters)); //change the number to be randomly generated
 
 	//for (int i = 0; i < 5; i++)
@@ -52,6 +52,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
 	if (Validate(PlayerGuess))
 	{
+		PrintLine(TEXT("You Win!"));
 		PrintLine(TEXT("You Win!"));
 	}
 
