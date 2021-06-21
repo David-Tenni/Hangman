@@ -8,5 +8,9 @@ const TArray<FString> Words =
 	TEXT("Venus"),
 	TEXT("Jupiter"),
 	TEXT("Pluto"),
-	TEXT("Mars")
+	TEXT("Mars"),
+	TEXT("Halo"),
+	TEXT("Isograms"),
+	TEXT("GitRekt"),
+	TEXT("Random")
 };
