@@ -12,5 +12,6 @@ const TArray<FString> Words =
 	TEXT("Halo"),
 	TEXT("Isograms"),
 	TEXT("GitRekt"),
-	TEXT("Random")
+	TEXT("Random"),
+	TEXT("yikes")
 };
