@@ -82,6 +82,9 @@ bool UBullCowCartridge::Validate(FString Guess)
 
 	PrintLine(TEXT("Guess Again!"));
 	--Lives;
+	int32 Rights, Wrongs;
+	GetRightLetters(Guess, Rights, Wrongs);
+	PrintLine(TEXT("You have %i right letters and %i wrong letters"), Rights, Wrongs);
 
 	PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
 	return false;
@@ -125,4 +128,9 @@ TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString>Words) const
 			}
 		}
 		return ValidWords;
+}
+
+void UBullCowCartridge::GetRightLetters(const FString& Guess, int32& RightCount, int32& WrongCount)
+{
+
 }
