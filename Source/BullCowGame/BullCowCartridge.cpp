@@ -8,7 +8,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     Super::BeginPlay();
 	Isograms = GetValidWords(Words);
 	InitGame();
-
+	FWrongRightCount Count;
 }
 
 void UBullCowCartridge::InitGame()
@@ -147,6 +147,7 @@ void UBullCowCartridge::GetRightLetters(const FString& Guess, int32& RightCount,
 			if (Guess[GuessIndex] == TheWord[HiddenIndex])
 			{
 				WrongCount++;
+				break;
 			}
 		}
 	}
