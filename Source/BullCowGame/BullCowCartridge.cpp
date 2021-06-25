@@ -130,7 +130,25 @@ TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString>Words) const
 		return ValidWords;
 }
 
-void UBullCowCartridge::GetRightLetters(const FString& Guess, int32& RightCount, int32& WrongCount)
+void UBullCowCartridge::GetRightLetters(const FString& Guess, int32& RightCount, int32& WrongCount) const
 {
+	RightCount = 0;
+	WrongCount = 0;
 
+	for (int32 GuessIndex = 0; GuessIndex < Guess.Len(); GuessIndex++)
+	{
+		if (Guess[GuessIndex] == TheWord[GuessIndex])
+		{
+			RightCount++;
+			continue;
+		}
+		for (int32 HiddenIndex = 0; HiddenIndex < Guess.Len(); HiddenIndex++)
+		{
+			if (Guess[GuessIndex] == TheWord[HiddenIndex])
+			{
+				WrongCount++;
+			}
+		}
+	}
+	
 }
