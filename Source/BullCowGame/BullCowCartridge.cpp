@@ -83,7 +83,7 @@ bool UBullCowCartridge::Validate(FString Guess)
 	PrintLine(TEXT("Guess Again!"));
 	--Lives;
 	FWrongRightCount Score = GetRightLetters(Guess);
-	PrintLine(TEXT("You have %i right letters and %i wrong letters"), Score.Rights, Score.Wrongs);
+	PrintLine(TEXT("You have %i right letters and %i misplaced letters"), Score.Rights, Score.Wrongs);
 
 	PrintLine(FString::Printf(TEXT("%i Lives left!"), Lives));
 	return false;
